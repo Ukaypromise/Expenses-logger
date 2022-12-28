@@ -1,4 +1,6 @@
-"use strict";
+import { Invoice } from "./modules/invoice";
+let invoices = [];
+let invoiceOne = new Invoice('Promise', 'House rent', 400);
 const form = document.querySelector(".new-item-form");
 const type = document.querySelector("#type");
 const tofrom = document.querySelector("#tofrom");

@@ -1,3 +1,9 @@
+import { Invoice } from "./modules/invoice";
+
+
+let invoices: Invoice[] = []
+let invoiceOne = new Invoice('Promise', 'House rent', 400)
+
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 const type = document.querySelector("#type") as HTMLSelectElement;
 const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
