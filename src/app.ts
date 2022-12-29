@@ -1,4 +1,13 @@
-import { Invoice } from "./modules/invoice";
+import { Invoice } from "./modules/Invoice";
+import { Payment } from "./modules/Payments";
+import { HasFormatter } from "./interfaces/Hasformatter";
+
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
+
+docOne = new Invoice("John", "Website development", 250);
+docTwo = new Payment("James", "Ruby on Rails book", 200);
+
 
 
 let invoices: Invoice[] = []

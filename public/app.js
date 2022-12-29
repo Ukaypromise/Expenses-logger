@@ -1,4 +1,9 @@
-import { Invoice } from "./modules/invoice";
+import { Invoice } from "./modules/Invoice";
+import { Payment } from "./modules/Payments";
+let docOne;
+let docTwo;
+docOne = new Invoice("John", "Website development", 250);
+docTwo = new Payment("James", "Ruby on Rails book", 200);
 let invoices = [];
 let invoiceOne = new Invoice('Promise', 'House rent', 400);
 const form = document.querySelector(".new-item-form");
