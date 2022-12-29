@@ -1,17 +1,8 @@
-import { Invoice } from "./modules/Invoice";
-import { Payment } from "./modules/Payments";
+import { Invoice } from "./modules/Invoice.js";
+import { Payment } from "./modules/Payments.js";
 import { HasFormatter } from "./interfaces/Hasformatter";
+import { ListTemplate } from "./modules/ListTemplates.js";
 
-let docOne: HasFormatter;
-let docTwo: HasFormatter;
-
-docOne = new Invoice("John", "Website development", 250);
-docTwo = new Payment("James", "Ruby on Rails book", 200);
-
-
-
-let invoices: Invoice[] = []
-let invoiceOne = new Invoice('Promise', 'House rent', 400)
 
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 const type = document.querySelector("#type") as HTMLSelectElement;
@@ -19,13 +10,21 @@ const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+const ul = document.querySelector("ul")!;
+const list = new ListTemplate(ul);
+
 form.addEventListener('submit', (e:Event)=>{
     e.preventDefault()
-   console.log( type.value,
-    tofrom.value,
-    details.value,
-    amount.value);
-   
 
+    let values : [string, string, number];
+    values = [tofrom.value, details.value, amount.valueAsNumber]
+    let doc: HasFormatter;
+    if(type.value === 'invoice'){
+        doc = new Invoice(...values)
+    }else{
+        doc = new Payment(...values)
+    }
+
+    list.render(doc, type.value, 'end')
 })
 
